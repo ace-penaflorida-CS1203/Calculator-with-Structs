@@ -1,11 +1,9 @@
-
 #include <iostream>
 # include <cstdlib>
 # include <string>
-# include <typeinfo>
 # include <limits>
 
-using namespace std
+using namespace std;
 
 const int MAX_VAL_HISTORY = 100;
 char backChar; 
@@ -71,7 +69,7 @@ void array_solutions(int &sizeVal, Values& value, double result){
 void history_main(const Values valueInfo, int sizeVal){ // const keyword indicates that the valueInfo object cannot be modified within the function.
   system("cls");
   string outputArray[MAX_VAL_HISTORY]; // with index 100
-  cout << "\n|   HISTORY  |   \n"; 
+  cout << "\n|                  HISTORY               |   \n\n"; 
   for (int i = 0; i < sizeVal; i++){ 
   
     // concatenating the converted values into 1 variable
@@ -190,7 +188,7 @@ int main() {
 
         case '/':
           value.quotient = divide(value.num1, value.num2);
-          cout << "\n   Quotient: " << value.num1 << " +/ " << value.num2 << " = " << value.quotient << endl;
+          cout << "\n   Quotient: " << value.num1 << " / " << value.num2 << " = " << value.quotient << endl;
 
           array_solutions(sizeVal, value, value.quotient);
           userContinueChoice(value.quotient);
