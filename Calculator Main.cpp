@@ -89,40 +89,47 @@ void continueOperation (double prevResult){
   double newValue;
   double localResult = prevResult;
   char newOperation;
+  bool isValid = false;
+  
 
-  double loopValues = localResult;
-  cout << "\n   New Operation: " << loopValues; 
-  cin >> newOperation >> newValue;
+  while (!isValid) {
+        double loopValues = localResult;
+        cout << "\n   New Operation: " << loopValues; 
+        cin >> newOperation >> newValue;
 
-  switch(newOperation){
-    case '+':
-      localResult = add(loopValues,newValue);
-      cout << "   New Result: " << loopValues << " + " << newValue << " = " << localResult << endl;
-      break;
-    case '-':
-      localResult = subtract(loopValues,newValue);
-      cout << "   New Result: " << loopValues << " - " << newValue << " = " << localResult << endl;
-      break;
-    case '*':
-      localResult = multiply(loopValues,newValue);
-      cout << "   New Result: " << loopValues << " * " << newValue << " = " << localResult << endl;
-      break;
-    case '/':
-      localResult = divide(loopValues,newValue);
-      cout << "   New Result: " << loopValues << " / " << newValue << " = " << localResult << endl;
-      break;
-  }
+        switch(newOperation){
+          case '+':
+            localResult = add(loopValues,newValue);
+            cout << "   New Result: " << loopValues << " + " << newValue << " = " << localResult << endl;
+            break;
+          case '-':
+            localResult = subtract(loopValues,newValue);
+            cout << "   New Result: " << loopValues << " - " << newValue << " = " << localResult << endl;
+            break;
+          case '*':
+            localResult = multiply(loopValues,newValue);
+            cout << "   New Result: " << loopValues << " * " << newValue << " = " << localResult << endl;
+            break;
+          case '/':
+            localResult = divide(loopValues,newValue);
+            cout << "   New Result: " << loopValues << " / " << newValue << " = " << localResult << endl;
+            break;
+        }
+        
+        isValid = isValidInput(loopValues, newOperation, newValue); // for input validation: returns a bool 
+        
+        }
 }
 
 // 5.) resuable function for continuing the operation
-void userContinueChoice(double method) {
+void userContinueChoice(double result) {
     char userInput;
     bool shouldContinue = true;
     while (shouldContinue) {
         cout << "\nCONTINUE OPERATION: |Y/N|";
         cin >> userInput;
         if (userInput == 'y' || userInput == 'Y') {
-            continueOperation(method);
+            continueOperation(result);
         } else if (userInput == 'n' || userInput == 'N') {
             shouldContinue = false;
         }
