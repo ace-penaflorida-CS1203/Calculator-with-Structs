@@ -5,7 +5,7 @@
 # include <typeinfo>
 # include <limits>
 
-using namespace std;
+using namespace std
 
 const int MAX_VAL_HISTORY = 100;
 char backChar; 
