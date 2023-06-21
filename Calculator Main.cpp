@@ -65,6 +65,7 @@ void array_solutions(int &sizeVal, Values& value, double result){
         }
 }
 
+
 //  3.) outputting the history
 void history_main(const Values valueInfo, int sizeVal){ // const keyword indicates that the valueInfo object cannot be modified within the function.
   system("cls");
@@ -88,43 +89,47 @@ void continueOperation (double prevResult){
   double localResult = prevResult;
   char newOperation;
   bool isValid = false;
-  
 
-  while (!isValid) {
-        double loopValues = localResult;
-        cout << "\n   New Operation: " << loopValues; 
-        cin >> newOperation >> newValue;
+  do {
+    cout << "\n   CONTINUE OPERATION: |Y/N|";
+    cin >> backChar;
+    if (backChar == 'y' || backChar == 'Y') {
+      double loopValues = localResult;
+      cout << "\n   New Operation: " << loopValues; 
+      cin >> newOperation >> newValue;
 
-        switch(newOperation){
-          case '+':
-            localResult = add(loopValues,newValue);
-            cout << "   New Result: " << loopValues << " + " << newValue << " = " << localResult << endl;
-            break;
-          case '-':
-            localResult = subtract(loopValues,newValue);
-            cout << "   New Result: " << loopValues << " - " << newValue << " = " << localResult << endl;
-            break;
-          case '*':
-            localResult = multiply(loopValues,newValue);
-            cout << "   New Result: " << loopValues << " * " << newValue << " = " << localResult << endl;
-            break;
-          case '/':
-            localResult = divide(loopValues,newValue);
-            cout << "   New Result: " << loopValues << " / " << newValue << " = " << localResult << endl;
-            break;
-        }
-        
-        isValid = isValidInput(loopValues, newOperation, newValue); // for input validation: returns a bool 
-        
-        }
+      switch(newOperation){
+        case '+':
+          localResult = add(loopValues,newValue);
+          cout << "   New Result: " << loopValues << " + " << newValue << " = " << localResult << endl;
+          break;
+
+        case '-':
+          localResult = subtract(loopValues,newValue);
+          cout << "   New Result: " << loopValues << " - " << newValue << " = " << localResult << endl;
+          break;
+
+        case '*':
+          localResult = multiply(loopValues,newValue);
+          cout << "   New Result: " << loopValues << " * " << newValue << " = " << localResult << endl;
+          break;
+
+        case '/':
+          localResult = divide(loopValues,newValue);
+          cout << "   New Result: " << loopValues << " / " << newValue << " = " << localResult << endl;
+          break;
+      }
+    }
+  } while (backChar == 'y' || backChar == 'Y');
 }
+
 
 // 5.) resuable function for continuing the operation
 void userContinueChoice(double result) {
     char userInput;
     bool shouldContinue = true;
     while (shouldContinue) {
-        cout << "\nCONTINUE OPERATION: |Y/N|";
+        cout << "\n   CONTINUE OPERATION: |Y/N|";
         cin >> userInput;
         if (userInput == 'y' || userInput == 'Y') {
             continueOperation(result);
@@ -146,11 +151,12 @@ int main() {
       system("cls");
       
       while (!isValid) {
-        cout << "_____Mini Calculator_____\n\n";
+        cout << "_______Mini Calculator_______\n\n";
         cout << "   Enter Equation: ";
         cin >> value.num1 >> value.operator1 >> value.num2;
-
+        
         isValid = isValidInput(value.num1, value.operator1, value.num2); // returns a bool 
+        
         }
       
       
