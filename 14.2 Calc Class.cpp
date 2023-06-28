@@ -81,22 +81,9 @@ public:
 
 
 //                  TO FIX:  HISTORY
-  void secondary_history(){ // const keyword indicates that the valueInfo object cannot be modified within the function.
-    system("cls");
-    
-    cout << "\n|                  HISTORY               |   \n\n"; 
-    for (int i = 0; i < sizeVal; i++){ 
-      // concatenating the converted values into 1 variable
-      string concatValues = to_string(i + 1) + ".) " + to_string(prevArrayValue[i]) + " " + newOperator[i] + " " + to_string(arrayNewValue[i]) + " = " + to_string(arrayNewResult[i]);
-
-      newOutputArray[i] = concatValues; // storing concatValues to outputArray
-      cout << newOutputArray[i] <<  " | Address: " << &newOutputArray[i] << endl;
-      //       dereferenncing                             address
-    }
-  }
 
 //  3.) outputting the history
-  /*void history_main(){ // const keyword indicates that the valueInfo object cannot be modified within the function.
+  void history_main(){ // const keyword indicates that the valueInfo object cannot be modified within the function.
     system("cls");
     //string outputArray[100]; // with index 100
     cout << "\n|                  HISTORY               |   \n\n"; 
@@ -108,35 +95,18 @@ public:
       cout << outputArray[i] <<  " | Address: " << &outputArray[i] << endl;
       //       dereferenncing                             address
 
-      string newConcatValues = to_string(i + 1) + ".) " + to_string(prevArrayValue[i]) + " " + newOperator[i] + " " + to_string(arrayNewValue[i]) + " = " + to_string(arrayNewResult[i]);
 
+      string newConcatValues = to_string(i + 1) + ".) " + to_string(prevArrayValue[i]) + " " + newOperator[i] + " " + to_string(arrayNewValue[i]) + " = " + to_string(arrayNewResult[i]);
       newOutputArray[i] = newConcatValues; // storing newConcatValues to outputArray
       cout << newOutputArray[i] <<  " | Address: " << &newOutputArray[i] << endl;
       //       dereferenncing                             address
     }
 
-  }*/
+  }
 
 
 
 
-/*
-  void history_main(){ // const keyword indicates that the valueInfo object cannot be modified within the function.
-    system("cls");
-    cout << "\n|                  HISTORY               |   \n\n";
-    int i = 0, j = 0;
-      while (i < sizeVal && j < sizeVal) {
-      string concatValues;
-      if (arrayResult[i] != 0) {
-        concatValues = to_string(i + 1) + ".) " + to_string(arrayNum1[i]) + " " + arrayOperator1[i] + " " + to_string(arrayNum2[i]) + " = " + to_string(arrayResult[i]);
-        i++;
-      } else {
-        concatValues = to_string(j + 1) + ".) " + to_string(prevArrayValue[j]) + " " + newOperator[j] + " " + to_string(arrayNewValue[j]) + " = " + to_string(arrayNewResult[j]);
-        j++;
-      }*
-      cout << concatValues <<  " | Address: " << &concatValues << endl;
-      }
-}*/
 
 // 4.) function if the user wants to perform another operation to the previous result
   void continueOperation (double prevResult){
